@@ -1,0 +1,48 @@
+/* Empty. Add your own CSS if you like */
+.button{
+    border: none !important;
+    border-radius: 0px;
+}
+.landing-pages{
+    text-align: center;
+    background-color: #FBFDFB;
+}
+.landing-pages img{
+    margin-top: 30%;
+    width: 90%;
+    margin-bottom: 10%;
+}
+.landing-pages .button-royal{
+    margin-top: 4%;
+}
+.landing-pages .error-message{
+    color: red;
+    font-size: 14pt;
+}
+.button-greater{
+    background-color: #C29CD6;
+    color: white;
+}
+.button-lesser{
+    background-color: white;
+}
+.coupons-page{
+    text-align: center;
+}
+.coupons-page .icon{
+    font-size: 30px;
+    float: right;
+}
+.coupons-page img{
+    width: 80px;
+    height: 80px;
+}
+.coupons-page h1{
+    display: inline-block;
+}
+.coupon-page img{
+    width: 100%;
+}
+.coupon-details-page{
+    text-align: center;
+}

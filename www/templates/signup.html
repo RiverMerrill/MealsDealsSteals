@@ -1,0 +1,21 @@
+<ion-view hide-nav-bar="true">
+  <ion-content class="landing-pages">
+    <img  src="http://i.giphy.com/WRqdWGzOv2LAI.gif"><br/>
+    <div class="error-message">{{message}}</div>
+    <label class="item item-input item-floating-label">
+      <span class="input-label">Email</span>
+      <input ng-model="newUser.email" type="text" placeholder="Email">
+    </label>
+    <label class="item item-input item-floating-label">
+      <span class="input-label">Password</span>
+      <input ng-model="newUser.pass" type="password" placeholder="Password">
+    </label>
+    <label class="item item-input item-floating-label">
+      <span class="input-label">Confirm Password</span>
+      <input ng-change="passwordMatch()" ng-model="newUser.confirmPass" type="password" placeholder="Confirm Password">
+  </label>
+  <button ng-click="signup()" class="button button-greater">SIGN UP</button>
+  <br/>
+  <button ui-sref="landing" class="button button-lesser">CANCEL</button>
+  </ion-content>
+</ion-view>
