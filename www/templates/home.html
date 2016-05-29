@@ -1,13 +1,23 @@
-<ion-view view-title="Home">
+<ion-view hide-back-button="true" view-title="Home">
+    <ion-nav-buttons side="left">
+        <i ng-click="searchBox.value = !searchBox.value" class="icon ion-search"></i>
+    </ion-nav-buttons>
     <ion-content class="home-page">
-        <div class="bar bar-header item-input-inset">
+        <div ng-show="searchBox.value" class="bar bar-header item-input-inset">
             <label class="item-input-wrapper">
                 <i class="icon ion-ios-search placeholder-icon"></i>
                 <input type="search" ng-model="search" placeholder="Search">
             </label>
-            <button class="button button-clear">
+            <button ng-click="searchBox.value = false" class="button button-clear">
                 Cancel
             </button>
+        </div>
+        <div class="categories">
+            <i ng-click="filterByCat('food')" class="icon ion-pizza"></i>
+            <i ng-click="filterByCat('shopping')" class="icon ion-bag"></i>
+            <i ng-click="filterByCat('health')" class="icon ion-leaf"></i>
+            <i ng-click="filterByCat('travel')" class="icon ion-android-car"></i>
+            <i ng-click="filterByCat('all')" class="button button-lesser">All</i>
         </div>
         <div class="list">
             <a class="item item-thumbnail-left" ng-repeat="item in data | filter: search" ui-sref-opts="{reload: true}" ui-sref="coupons({id: item.$id, title: item.title, description: item.description, image: item.image, location: item.location})">

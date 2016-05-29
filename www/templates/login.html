@@ -1,14 +1,19 @@
 <ion-view hide-nav-bar="true">
   <ion-content class="landing-pages">
-    <img  src="http://i.giphy.com/WRqdWGzOv2LAI.gif"><br/>
-    <label class="item item-input item-floating-label">
+    <img src="http://i.giphy.com/WRqdWGzOv2LAI.gif"><br/>
+    <div class="error-message">{{message}}</div>
+    <span class="error-message" ng-show="myForm.input.$error.email">
+        Not a valid email.</span>
+    <form name="myForm">
+      <label class="item item-input item-floating-label">
       <span class="input-label">Email</span>
-      <input ng-model="user.email" type="text" placeholder="Email">
+      <input name="input" ng-model="user.email" type="email" placeholder="Email">
     </label>
-    <label class="item item-input item-floating-label">
+      <label class="item item-input item-floating-label">
       <span class="input-label">Password</span>
       <input ng-model="user.pass" type="password" placeholder="Password">
     </label>
+    </form>
     <button ng-click="login()" class="button button-greater">LOG IN</button>
     <br/>
     <button ui-sref="landing" class="button button-lesser">CANCEL</button>

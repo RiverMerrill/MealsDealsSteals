@@ -15,7 +15,7 @@
 .landing-pages .button-royal{
     margin-top: 4%;
 }
-.landing-pages .error-message{
+.error-message{
     color: red;
     font-size: 14pt;
 }
@@ -25,6 +25,20 @@
 }
 .button-lesser{
     background-color: white;
+}
+.ion-search{
+    font-size: 25pt;
+}
+.home-page .categories .icon{
+    font-size: 20pt;
+    margin: 15px;
+    vertical-align: baseline;
+}
+.home-page .categories .icon::before{
+    margin-top: 8px;
+}
+.home-page .categories{
+    text-align: center;
 }
 .coupons-page{
     text-align: center;
