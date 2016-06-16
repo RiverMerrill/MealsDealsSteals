@@ -7,6 +7,9 @@
 
   function CouponsController($scope, $firebaseArray, $firebaseObject, $state, $stateParams, $localStorage, $ionicNavBarDelegate){
     $scope.coupons = [];
+    $scope.vars = {};
+    $scope.vars.loading = true;
+    $scope.vars.noCoupons = false;
     console.log('reload');
     $scope.loading = true;
     $ionicNavBarDelegate.showBackButton(true);
@@ -32,6 +35,7 @@
     var ref = new Firebase('https://mealsdealssteals.firebaseio.com/coupons')
     ref.off("child_added");
     ref.orderByChild("company").equalTo($scope.company.title).on("child_added", function(snapshot) {
+      console.log(snapshot.val());
       var count = 0;
       var myId = snapshot.key();
       $localStorage.IDs.forEach(function(id){
@@ -39,16 +43,17 @@
           count = 1;
         }
       })
-      if(count === 0){
+      if(count === 0 && !snapshot.val().skip){
         var temp = new Firebase('https://mealsdealssteals.firebaseio.com/coupons/' + snapshot.key())
         $scope.coupons.push($firebaseObject(temp));
       }
       if($scope.coupons.length > 0){
-        $scope.noCoupons = false;
+        $scope.vars.noCoupons = false;
       } else{
-        $scope.noCoupons = true;
+        $scope.vars.noCoupons = true;
       }
-      $scope.loading = false
+      $scope.vars.loading = false;
+      $scope.$apply();
     });
   }
 })();

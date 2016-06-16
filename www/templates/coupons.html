@@ -8,8 +8,8 @@
     <p>{{company.description}}</p>
     <br><br/>
     <div class="list">
-      <ion-spinner ng-show="loading"></ion-spinner>
-      <h3 ng-show="noCoupons">No current coupons available for this establishment.</h3>
+      <ion-spinner ng-if="vars.loading == true"></ion-spinner>
+      <h3 ng-show="vars.noCoupons">No current coupons available for this establishment.</h3>
       <a ng-repeat="coupon in coupons" class="item item-icon-left" ui-sref="description({id: coupon.$id})">
         <i class="icon ion-plus-circled"></i>
         {{coupon.title}}
