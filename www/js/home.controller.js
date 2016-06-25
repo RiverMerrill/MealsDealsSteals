@@ -30,16 +30,16 @@
         $scope.filterByCat = function (cat) {
             reset().then(function (data) {
                 $scope.data = data;
-                if (cat !== "all") {
-                    $scope.data.forEach(function (item) {
-                        if (item.category !== cat) {
-                            $scope.data.splice($scope.data.indexOf(item), 1);
-                        }
-                    })
-                } else {
+                if (cat == "all") {
                     var temp = new Firebase('https://mealsdealssteals.firebaseio.com/companies');
                     var db = $firebaseArray(temp);
                     $scope.data = db;
+                } else {
+                    $scope.data.forEach(function (item) {
+                        if (item.category != cat) {
+                            $scope.data.splice($scope.data.indexOf(item), 1);
+                        }
+                    })
                 }
             })
         }
