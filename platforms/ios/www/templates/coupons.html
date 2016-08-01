@@ -1,0 +1,30 @@
+<ion-view view-title="{{company.title}}">
+  <ion-content class="coupons-page">
+    <i ng-hide="favorited" class="icon ion-ios-star-outline" ng-click="favorite(company.id)"></i>
+    <i ng-show="favorited" class="icon ion-ios-star" ng-click="unfavorite(company.id)"></i>
+    <br>
+    <h1>{{company.title}}</h1>
+    <img src="{{company.image}}" />
+    <p>{{company.description}}</p>
+    <br><br/>
+    <div class="list">
+      <ion-spinner ng-if="vars.loading == true"></ion-spinner>
+      <h3 ng-show="vars.noCoupons">No current coupons available for this establishment.</h3>
+      <a ng-repeat="coupon in coupons" class="item item-icon-left" ui-sref="description({id: coupon.$id})">
+        <i class="icon ion-plus-circled"></i>
+        {{coupon.title}}
+      </a>
+    </div>
+  </ion-content>
+  <div class="tabs">
+    <a class="tab-item" ui-sref="home">
+      Home
+    </a>
+    <a class="tab-item" ui-sref="favorites">
+      Favorites
+    </a>
+    <a class="tab-item" ui-sref="settings">
+      Settings
+    </a>
+  </div>
+</ion-view>

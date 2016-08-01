@@ -1,0 +1,31 @@
+<ion-view view-title="Favorites">
+  <ion-content>
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" ng-model="search" placeholder="Search">
+      </label>
+      <button class="button button-clear">
+        Cancel
+      </button>
+    </div>
+    <div class="list">
+      <a class="item item-thumbnail-left" ng-repeat="item in data | filter: search" ui-sref="coupons({id: item.$id, title: item.title, description: item.description, image: item.image, location: item.location})">
+        <img ng-src="{{item.image}}">
+        <h2>{{item.title}}</h2>
+        <p>{{item.location}}</p>
+      </a>
+    </div>
+  </ion-content>
+  <div class="tabs">
+    <a class="tab-item" ui-sref="home">
+      Home
+    </a>
+    <a class="tab-item" ui-sref="favorites">
+      Favorites
+    </a>
+    <a class="tab-item" ui-sref="settings">
+      Settings
+    </a>
+  </div>
+</ion-view>
