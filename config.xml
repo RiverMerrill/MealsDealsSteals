@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.dealsapp504236" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Meals,&#160;Deals&#160;&amp;&#160;Steals</name>
+  <name>MDS</name>
   <description>
         An Ionic Framework and Cordova project.
     </description>
