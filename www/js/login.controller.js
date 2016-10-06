@@ -13,7 +13,7 @@ dealsApp.controller('LoginController', function($scope, $state, $localStorage){
         $scope.message = 'Username and password do not match';
         $scope.$apply();
       };
-      if(authData){$state.go('home'); $localStorage.loggedIn = true};
+      if(authData){$state.go('home'); $localStorage.userLoggedIn = {username: $scope.user.email, password: $scope.user.pass}};
     })
   }
 

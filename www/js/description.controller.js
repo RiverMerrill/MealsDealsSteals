@@ -13,10 +13,10 @@
     console.log($scope.coupon);
     $scope.redeem = function () {
       ref.once("value", function(snapshot) {
-      redeemed = snapshot.val().redeemed;
       if(snapshot.val().redeemed == undefined){
           ref.update({redeemed: 1});
       } else{
+          redeemed = snapshot.val().redeemed;
           ref.update({redeemed: redeemed + 1});
       }
       console.log(snapshot.val().redeemed)

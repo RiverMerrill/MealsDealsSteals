@@ -16,13 +16,12 @@
             }, 300)
         }
         $scope.tabsOn = true;
-        var ref = new Firebase('https://mealsdealssteals.firebaseio.com/companies')
+        var ref = new Firebase('https://mealsdealssteals.firebaseio.com/companies1')
         $scope.data = $firebaseArray(ref);
-        $localStorage.tempData = $scope.data;
-        console.log($scope.data);
+        // $localStorage.tempData = $scope.data;
         function reset() {
             var deferred = $q.defer();
-            var temp = new Firebase('https://mealsdealssteals.firebaseio.com/companies');
+            var temp = new Firebase('https://mealsdealssteals.firebaseio.com/companies1');
             var db = $firebaseArray(temp);
             deferred.resolve(db);
             return deferred.promise;
@@ -31,7 +30,7 @@
             reset().then(function (data) {
                 $scope.data = data;
                 if (cat == "all") {
-                    var temp = new Firebase('https://mealsdealssteals.firebaseio.com/companies');
+                    var temp = new Firebase('https://mealsdealssteals.firebaseio.com/companies1');
                     var db = $firebaseArray(temp);
                     $scope.data = db;
                 } else {
