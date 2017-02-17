@@ -9,14 +9,17 @@
     var ref = new Firebase('https://mealsdealssteals.firebaseio.com/coupons/' + $stateParams.id);
     var ref2 = new Firebase('https://mealsdealssteals.firebaseio.com/');
     var redeemed;
-
     $scope.coupon = $firebaseObject(ref)
     console.log($scope.coupon);
     $scope.redeem = function () {
-      ref2.child('redeemed').once("value", function(snapshot) {
-      redeemed = snapshot.val();
-      console.log(snapshot.val())
-      ref2.update({redeemed: redeemed + 1});
+      ref.once("value", function(snapshot) {
+      if(snapshot.val().redeemed == undefined){
+          ref.update({redeemed: 1});
+      } else{
+          redeemed = snapshot.val().redeemed;
+          ref.update({redeemed: redeemed + 1});
+      }
+      console.log(snapshot.val().redeemed)
     });
       if ($scope.coupon.oneTime === "true") {
         $localStorage.IDs.push($scope.coupon.$id);

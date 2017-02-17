@@ -5,7 +5,7 @@
   .module('DealsApp')
   .controller('CouponsController', CouponsController);
 
-  function CouponsController($scope, $firebaseArray, $firebaseObject, $state, $stateParams, $localStorage, $ionicNavBarDelegate){
+  function CouponsController($q, $scope, $firebaseArray, $firebaseObject, $state, $stateParams, $localStorage, $ionicNavBarDelegate){
     $scope.coupons = [];
     $scope.vars = {};
     $scope.vars.loading = true;
@@ -16,6 +16,16 @@
     $scope.tabsOn = true;
     $scope.company = $stateParams;
     console.log($scope.company);
+    function reset() {
+            var deferred = $q.defer();
+            var temp = new Firebase('https://mealsdealssteals.firebaseio.com/coupons');
+            var db = $firebaseObject(temp);
+            deferred.resolve(db);
+            return deferred.promise;
+        }
+    reset().then(function(res){
+        console.log(res);
+    })
     $localStorage.favorites.forEach(function(fave){
       if(fave == $scope.company.id){
         $scope.favorited = true;

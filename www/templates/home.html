@@ -2,7 +2,7 @@
     <ion-nav-buttons side="left">
         <i ng-click="searchBox.value = !searchBox.value" class="icon ion-search"></i>
     </ion-nav-buttons>
-    <ion-content class="home-page">
+    <ion-content class="home-page has-tabs">
         <div ng-show="searchBox.value" class="bar bar-header item-input-inset">
             <label class="item-input-wrapper">
                 <i class="icon ion-ios-search placeholder-icon"></i>
@@ -20,7 +20,7 @@
             <i ng-click="filterByCat('all')" class="button button-lesser">All</i>
         </div>
         <div class="list">
-            <a class="item item-thumbnail-left" ng-repeat="item in data | filter: search" ui-sref-opts="{reload: true}" ui-sref="coupons({id: item.$id, title: item.title, description: item.description, image: item.image, location: item.location})">
+            <a class="item item-thumbnail-left" ng-repeat="item in data | filter: search | orderBy: 'title'" ui-sref-opts="{reload: true}" ui-sref="coupons({id: item.$id, title: item.title, description: item.description, image: item.image, location: item.location})">
                 <img ng-src="{{item.image}}">
                 <h2>{{item.title}}</h2>
                 <p>{{item.location}}</p>
