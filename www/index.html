@@ -32,12 +32,24 @@
     <!-- ng-storage -->
     <script src="lib/ngstorage/ngStorage.min.js"></script>
     <!-- your app's js -->
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAhYq_vvU6iV4ehqnRiQxMyVfkdQCA5AWA",
+        authDomain: "mealsdealssteals.firebaseapp.com",
+        databaseURL: "https://mealsdealssteals.firebaseio.com",
+        storageBucket: "mealsdealssteals.appspot.com",
+        messagingSenderId: "555245365383"
+      };
+      firebase.initializeApp(config);
+    </script>
     <script src="./plugins/ionic-plugin-deploy/www/ionicdeploy.js" charset="utf-8"></script>
     <script src="js/app.js"></script>
     <script src="js/landing.controller.js"></script>
     <script src="js/home.controller.js"></script>
-    <script type="text/javascript" src="js/login.controller.js"></script>
-    <script type="text/javascript" src="js/signup.controller.js"></script>
+    <script src="js/login.controller.js"></script>
+    <script src="js/signup.controller.js"></script>
     <script src="js/coupons.controller.js"></script>
     <script src="js/description.controller.js"></script>
     <script src="js/coupon.controller.js"></script>
