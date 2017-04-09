@@ -46,7 +46,7 @@
           firebase.database().ref(m + '/' + $scope.coupon.company).update(updates)
         } else {
           debugger;
-          var redeemed = snapshot.val()[m][$scope.coupon.company][$scope.coupon.title];
+          var redeemed = snapshot.val()[m][$scope.coupon.company][$scope.coupon.title] + 1;
           var updates = {};
           updates[$scope.coupon.title] = redeemed;
           firebase.database().ref(m + '/' + $scope.coupon.company).update(updates)
