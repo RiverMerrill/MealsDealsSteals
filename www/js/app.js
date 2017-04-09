@@ -3,8 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var dealsApp = angular.module('DealsApp', ['ionic', 'firebase', 'ngStorage', 'ionic.cloud'])
-
+var dealsApp = angular.module('DealsApp', ['ionic', 'firebase', 'ngStorage', 'ngCordova', 'ionic.cloud'])
     .run(function($ionicPlatform, $ionicDeploy) {
         $ionicPlatform.ready(function() {
           $ionicDeploy.check().then(function(snapshotAvailable) {
@@ -59,7 +58,7 @@ var dealsApp = angular.module('DealsApp', ['ionic', 'firebase', 'ngStorage', 'io
                 params: {reload: null}
             })
             .state('coupons', {
-                url: "/coupons/:id/:title/:location",
+                url: "/coupons/:id/:title/:location/:address",
                 templateUrl: "templates/coupons.html",
                 controller: "CouponsController",
                 params: {image: null, description: null}
