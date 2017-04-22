@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.1' encoding='utf-8'?>
 <widget id="com.ionicframework.dealsapp504236" version="1.9.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>MDS</name>
     <description>
@@ -76,5 +76,5 @@
         <splash height="1280" src="resources/wp8/splash/SplashScreenImage.png" width="768" />
     </platform>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
-    <plugin name="ionic-plugin-deploy" spec="~0.6.5" />
+    <plugin name="ionic-plugin-deploy" spec="~0.6.6" />
 </widget>

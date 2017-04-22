@@ -4,17 +4,16 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 var dealsApp = angular.module('DealsApp', ['ionic', 'firebase', 'ngStorage', 'ngCordova', 'ionic.cloud'])
+
+    .config(function($ionicCloudProvider) {
+      $ionicCloudProvider.init({
+        "core": {
+          "app_id": "f6d868cf"
+        }
+      });
+    })
     .run(function($ionicPlatform, $ionicDeploy) {
         $ionicPlatform.ready(function() {
-          $ionicDeploy.check().then(function(snapshotAvailable) {
-              if (snapshotAvailable) {
-                $ionicDeploy.download().then(function() {
-                  return $ionicDeploy.extract().then(function(){
-                    $ionicDeploy.load();
-                  });
-                });
-              }
-            });
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                 // for form inputs)

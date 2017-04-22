@@ -1,4 +1,11 @@
-dealsApp.controller('LandingController', function($scope, $state ,$localStorage){
+dealsApp.controller('LandingController', function($scope, $state ,$localStorage, $ionicDeploy){
+  $ionicDeploy.check().then(function(snapshotAvailable) {
+    if (snapshotAvailable) {
+      $ionicDeploy.download().then(function() {
+        return $ionicDeploy.extract();
+      });
+    }
+  });
   $scope.tabsOn = false;
   var ref = new Firebase('https://mealsdealssteals.firebaseio.com/')
   if(!$localStorage.IDs){
